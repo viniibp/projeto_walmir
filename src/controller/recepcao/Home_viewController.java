@@ -11,6 +11,7 @@ public class Home_viewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //esse foi so um teste
         Object ob = rb.getObject("obj");
     }    
     
