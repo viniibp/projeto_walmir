@@ -8,7 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
-public class Patient_register_viewController implements Initializable {
+public class Patient_registerController implements Initializable {
 
     @FXML
     private TextField txt_nome;
@@ -27,18 +27,23 @@ public class Patient_register_viewController implements Initializable {
     @FXML
     private TextField txt_cidade;
     @FXML
-    private ComboBox<?> cb_estado;
+    private ComboBox<String> cb_estado;
     @FXML
-    private ComboBox<?> cb_sexo;
+    private ComboBox<String> cb_sexo;
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        carregarCB();
     }    
 
     @FXML
     private void cadastrarPaciente(ActionEvent event) {
+    }
+    
+    private void carregarCB(){
+        cb_sexo.getItems().addAll("Masculino", "Feminino");
+        cb_estado.getItems().addAll("AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RO", "RS", "RR", "SC", "SE", "SP", "TO" );
     }
     
 }

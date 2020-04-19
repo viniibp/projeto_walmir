@@ -18,10 +18,19 @@ public class main extends Application {
         stage = stageStart;
         
         //Busca a view da tela inicial
-        Parent root = FXMLLoader.load(getClass().getResource("login_view.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        
+        //Parent root = FXMLLoader.load(getClass().getResource("recepcao/home.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("recepcao/patient_register.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("recepcao/screening.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("recepcao/screening_diagnostics.fxml"));
+        
+        //Parent root = FXMLLoader.load(getClass().getResource("medico/diagnostics.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("medico/list_of_pacients.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("medico/results.fxml"));
         
         //cria uma area pra colocar a janela inicial
-        Scene scene = new Scene(root, 700, 430);
+        Scene scene = new Scene(root, 974, 600);
         
         stage.setTitle("Sistema do Hospital");
         stage.setScene(scene);
@@ -60,7 +69,7 @@ public class main extends Application {
             
             Parent root = FXMLLoader.load(getClass().getResource(tela), rb);
             
-            Scene scene = new Scene(root, 700, 430);
+            Scene scene = new Scene(root, 974, 600);
 
             stage.setScene(scene);
         }
@@ -68,7 +77,7 @@ public class main extends Application {
         protected void show(String tela) throws IOException{
             Parent root = FXMLLoader.load(getClass().getResource(tela));
             
-            Scene scene = new Scene(root, 700, 430);
+            Scene scene = new Scene(root, 974, 600);
 
             stage.setScene(scene);
         }

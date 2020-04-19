@@ -7,22 +7,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import views.main;
 
-public class Home_viewController implements Initializable {
+public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //esse foi so um teste
-        Object ob = rb.getObject("obj");
+        //Object ob = rb.getObject("obj");
     }    
     
     @FXML
-    private void encaminharTriagem(){
-        
+    private void encaminharTriagem() throws IOException{
+        main.TrocarTelas("recepcao/screening.fxml");
     }
     
     @FXML
     private void cadastrarPaciente() throws IOException{
-        main.TrocarTelas("recepcao/patient_register_view.fxml");
+        main.TrocarTelas("recepcao/patient_register.fxml");
     }
     
     @FXML

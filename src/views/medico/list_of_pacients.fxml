@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="974.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.medico.List_of_pacientsController">
+   <children>
+      <Button layoutX="852.0" layoutY="14.0" mnemonicParsing="false" onAction="#sair" prefHeight="38.0" prefWidth="108.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 5;" text="Logout">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/img/stand_by_icon%201.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <TextField fx:id="txt_pesquisarPaciente" layoutX="170.0" layoutY="108.0" prefHeight="52.0" prefWidth="691.0" promptText="Pesquisar paciente" />
+      <ImageView fitHeight="52.0" fitWidth="43.0" layoutX="114.0" layoutY="113.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/img/search_icon.png" />
+         </image>
+      </ImageView>
+      <ScrollPane fx:id="scroll" layoutX="113.0" layoutY="204.0" prefHeight="360.0" prefWidth="756.0" style="-fx-border-color: white;">
+         <content>
+            <FlowPane fx:id="base" prefHeight="356.0" prefWidth="752.0" style="-fx-background-color: white;" />
+         </content>
+      </ScrollPane>
+      <Text layoutX="322.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nomes">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

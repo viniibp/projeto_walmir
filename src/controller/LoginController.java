@@ -8,7 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import views.main;
 
-public class Login_viewController implements Initializable {
+public class LoginController implements Initializable {
 
     @FXML
     private TextField txt_user, txt_pass;
@@ -20,7 +20,7 @@ public class Login_viewController implements Initializable {
     @FXML
     private void logar() throws IOException{
         if(txt_user.getText().equals("rec") && txt_pass.getText().equals("123")){
-            main.TrocarTelas("recepcao/home_view.fxml", txt_user.getText());
+            main.TrocarTelas("recepcao/home.fxml");
         }
         clear();
     }

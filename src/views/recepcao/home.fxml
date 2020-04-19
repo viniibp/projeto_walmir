@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="976.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.recepcao.HomeController">
+   <children>
+      <ImageView fitHeight="174.0" fitWidth="280.0" layoutX="348.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/img/logo.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="243.0" layoutY="300.0" mnemonicParsing="false" onAction="#encaminharTriagem" prefHeight="55.0" prefWidth="490.0" style="-fx-background-color: #0088AA; -fx-background-radius: 5;" text="Encaminhar para Triagem" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="243.0" layoutY="382.0" mnemonicParsing="false" onAction="#cadastrarPaciente" prefHeight="55.0" prefWidth="490.0" style="-fx-background-color: #0088AA; -fx-background-radius: 5;" text="Cadastrar Paciente" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="622.0" layoutY="14.0" mnemonicParsing="false" onAction="#sair" prefHeight="38.0" prefWidth="108.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 5;" text="Logout" AnchorPane.rightAnchor="10.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/img/stand_by_icon%201.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
