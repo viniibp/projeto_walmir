@@ -26,7 +26,7 @@ public class HomeController implements Initializable {
     
     @FXML
     private void sair() throws IOException{
-        main.TrocarTelas("login_view.fxml");
+        main.TrocarTelas("login.fxml");
 
     }
 

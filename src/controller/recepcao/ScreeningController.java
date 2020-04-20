@@ -1,10 +1,12 @@
 package controller.recepcao;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import views.main;
 
 public class ScreeningController implements Initializable {
 
@@ -19,6 +21,11 @@ public class ScreeningController implements Initializable {
     @FXML
     private void encaminharPaciente(){
         
+    }
+    
+    @FXML
+    private void voltarHome() throws IOException{
+        main.TrocarTelas("recepcao/home.fxml");
     }
     
 }

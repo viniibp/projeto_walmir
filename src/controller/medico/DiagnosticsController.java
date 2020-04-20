@@ -1,13 +1,17 @@
 package controller.medico;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+import models.Pacient;
+import views.main;
 import static widget.widgets.txt;
 import static widget.widgets.hboxBorder;
 
@@ -19,11 +23,27 @@ public class DiagnosticsController implements Initializable {
     @FXML
     private ScrollPane scroll;
     
+    @FXML
+    private Label lb_nome;
+    
+    //teste
+    private Pacient paciente;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);       
+        scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        paciente = (Pacient)rb.getObject("obj");
+        carregarInfo();
     }    
     
+    private void carregarInfo(){
+        lb_nome.setText(paciente.getNome());
+    }
+    
+    @FXML
+    private void voltarListaPacientes() throws IOException{
+        main.TrocarTelas("medico/list_of_pacients.fxml");
+    }
     /*TODO
         Fazer botão de remover medicamento/dose
         arrumar scroll, não muito importante...
@@ -38,8 +58,8 @@ public class DiagnosticsController implements Initializable {
     }
     
     @FXML
-    private void enviar(){
-        //scroll.setVvalue(1); aqui funciona
+    private void enviar() throws IOException{
+        main.TrocarTelas("", paciente);
     }
     
     

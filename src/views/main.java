@@ -18,7 +18,7 @@ public class main extends Application {
         stage = stageStart;
         
         //Busca a view da tela inicial
-        //Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         
         //Parent root = FXMLLoader.load(getClass().getResource("recepcao/home.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("recepcao/patient_register.fxml"));
@@ -27,7 +27,7 @@ public class main extends Application {
         
         //Parent root = FXMLLoader.load(getClass().getResource("medico/diagnostics.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("medico/list_of_pacients.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("medico/results.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("medico/results.fxml"));
         
         //cria uma area pra colocar a janela inicial
         Scene scene = new Scene(root, 974, 600);

@@ -21,9 +21,9 @@
             <Label layoutX="162.0" layoutY="46.0" text="Nome:" />
             <Label layoutX="168.0" layoutY="122.0" text="SUS:" />
             <Label layoutX="168.0" layoutY="187.0" prefHeight="0.0" prefWidth="33.0" text="CPF:" />
-            <Label layoutX="201.0" layoutY="45.0" prefHeight="19.0" prefWidth="33.0" style="-fx-border-color: grey;" />
-            <Label layoutX="201.0" layoutY="121.0" prefHeight="19.0" prefWidth="33.0" style="-fx-border-color: grey;" />
-            <Label layoutX="201.0" layoutY="186.0" prefHeight="0.0" prefWidth="33.0" style="-fx-border-color: grey;" />
+            <Label fx:id="lb_nome" layoutX="201.0" layoutY="45.0" prefHeight="19.0" prefWidth="200.0" style="-fx-border-color: grey;" />
+            <Label fx:id="lb_sus" layoutX="201.0" layoutY="121.0" prefHeight="19.0" prefWidth="200.0" style="-fx-border-color: grey;" />
+            <Label fx:id="lb_cpf" layoutX="201.0" layoutY="186.0" prefHeight="19.0" prefWidth="200.0" style="-fx-border-color: grey;" />
             <Pane layoutX="201.0" layoutY="228.0" prefHeight="10.0" prefWidth="200.0" style="-fx-background-color: yellow; -fx-background-radius: 10;" />
          </children>
       </Pane>
@@ -78,5 +78,17 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
+      <Button layoutX="6.0" layoutY="4.0" mnemonicParsing="false" onAction="#voltarListaPacientes" prefHeight="34.0" prefWidth="89.0" style="-fx-background-color: #0088AA; -fx-border-radius: 10;" text="Voltar" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+               <image>
+                  <Image url="@../../assets/img/collapse_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

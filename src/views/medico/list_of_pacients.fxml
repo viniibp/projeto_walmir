@@ -24,7 +24,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <TextField fx:id="txt_pesquisarPaciente" layoutX="170.0" layoutY="108.0" prefHeight="52.0" prefWidth="691.0" promptText="Pesquisar paciente" />
+      <TextField fx:id="txt_pesquisarPaciente" layoutX="170.0" layoutY="108.0" onKeyReleased="#filtrarPacientes" prefHeight="52.0" prefWidth="691.0" promptText="Pesquisar paciente" />
       <ImageView fitHeight="52.0" fitWidth="43.0" layoutX="114.0" layoutY="113.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/img/search_icon.png" />

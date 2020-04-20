@@ -1,5 +1,6 @@
 package controller.recepcao;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -7,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import views.main;
 
 public class Patient_registerController implements Initializable {
 
@@ -39,6 +41,11 @@ public class Patient_registerController implements Initializable {
 
     @FXML
     private void cadastrarPaciente(ActionEvent event) {
+    }
+    
+    @FXML
+    private void voltarHome() throws IOException{
+        main.TrocarTelas("recepcao/home.fxml");
     }
     
     private void carregarCB(){
