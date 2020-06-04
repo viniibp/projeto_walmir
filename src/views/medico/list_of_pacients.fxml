@@ -40,5 +40,10 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
+      <Text fx:id="nomeMedico" fill="#7a81a4" layoutX="37.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome Medico" AnchorPane.leftAnchor="35.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

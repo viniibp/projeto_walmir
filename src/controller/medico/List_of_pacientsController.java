@@ -14,7 +14,10 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
-import models.Pacient;
+import javafx.scene.text.Text;
+import models.Medico;
+import models.Paciente;
+import sessao.Sessao;
 import views.main;
 import static widget.widgets.hbox;
 import static widget.widgets.txtBorder;
@@ -27,30 +30,35 @@ public class List_of_pacientsController implements Initializable {
     private FlowPane base;
     
     @FXML
+    private Text nomeMedico;
+    
+    @FXML
     private ScrollPane scroll;
     
     @FXML
     private TextField txt_pesquisarPaciente;
     
-    private List<Pacient> pacientes;
+    private List<Paciente> pacientes;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Medico medico = (Medico)Sessao.Logado();
+        nomeMedico.setText(medico.getNome());
         scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); 
         
         //TODO remover testes posteriormente
         pacientes = new ArrayList<>();
-        pacientes.add(new Pacient("Marcos"));
-        pacientes.add(new Pacient("Pedro"));
-        pacientes.add(new Pacient("Rafael"));
-        pacientes.add(new Pacient("Paula"));        
-        pacientes.add(new Pacient("Teste")); 
+        pacientes.add(new Paciente("Marcos"));
+        pacientes.add(new Paciente("Pedro"));
+        pacientes.add(new Paciente("Rafael"));
+        pacientes.add(new Paciente("Paula"));        
+        pacientes.add(new Paciente("Teste"));
    
         load(pacientes);
     }
     
-    private void load(List<Pacient> pacientes){
-        for (Pacient paciente : pacientes) {
+    private void load(List<Paciente> pacientes){
+        pacientes.forEach((paciente) -> {
             HBox pacient_base = hbox("495", "85");
             TextField pacient = txtBorder("480", "55");
             pacient.setText(paciente.getNome());
@@ -72,14 +80,14 @@ public class List_of_pacientsController implements Initializable {
 
             base.getChildren().add(pacient_base);
             base.getChildren().add(button_base);
-        }
+        });
     }
     
     @FXML
     private void filtrarPacientes(){
         base.getChildren().clear();
-        List<Pacient> listaFiltrada = new ArrayList<>();
-//        for (Pacient paciente : pacientes) {
+        List<Paciente> listaFiltrada = new ArrayList<>();
+//        for (Paciente paciente : pacientes) {
 //            if(paciente.getNome().toUpperCase().startsWith(txt_pesquisarPaciente.getText().toUpperCase())) listaFiltrada.add(paciente);
 //        }
         pacientes.stream().filter((paciente) -> (
@@ -93,6 +101,7 @@ public class List_of_pacientsController implements Initializable {
     
     @FXML
     private void sair() throws IOException{
+        Sessao.EndSession();
         main.TrocarTelas("login.fxml");
     }
     
