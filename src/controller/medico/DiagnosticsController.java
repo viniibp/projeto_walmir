@@ -14,7 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import models.Paciente;
-import models.Atendimento;
 import views.main;
 import static widget.widgets.txt;
 import static widget.widgets.hboxBorder;
@@ -54,6 +53,7 @@ public class DiagnosticsController implements Initializable {
     private void voltarListaPacientes() throws IOException{
         main.TrocarTelas("medico/list_of_pacients.fxml");
     }
+    
     /*TODO
         Fazer botão de remover medicamento/dose
         arrumar scroll, não muito importante...

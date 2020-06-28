@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 
 public class ConnectionFactory {
+    protected Connection conn;
     
     public Connection getConnection(){
         String driver = "com.mysql.jdbc.Driver";
@@ -22,5 +23,15 @@ public class ConnectionFactory {
             throw new RuntimeException("Erro na conexão", ex);
         }
     }
+    
+    protected void Open(){
+        conn = getConnection();
+    }
+    
+    protected void Close() throws SQLException{
+        if(!conn.isClosed()) conn.close();
+    }
+    
+    
     
 }

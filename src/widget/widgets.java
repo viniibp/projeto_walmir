@@ -5,6 +5,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 
 public class widgets {
     
@@ -69,5 +71,16 @@ public class widgets {
           + "-fx-pref-height: "+height+";"
         );
         return button;
+    }
+    
+    public static void Notification(String title, String text){
+        Notifications not = Notifications.create()
+                .title(title)
+                .text(text)
+                .graphic(null)
+                .hideAfter(Duration.seconds(3))
+                .position(Pos.BOTTOM_RIGHT);
+        not.showInformation();
+
     }
 }

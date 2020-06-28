@@ -15,10 +15,10 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <TextField fx:id="txt_nome" layoutX="110.0" layoutY="189.0" prefHeight="52.0" prefWidth="360.0" promptText="ex: fatec cruzeiro" />
-      <TextField fx:id="txt_numeroSUS" layoutX="110.0" layoutY="284.0" prefHeight="52.0" prefWidth="360.0" promptText="ex: 32198746516 " />
-      <TextField fx:id="txt_RG" layoutX="501.0" layoutY="189.0" prefHeight="52.0" prefWidth="360.0" promptText="ex: 00000000000-SP" />
-      <TextField fx:id="txt_CPF" layoutX="501.0" layoutY="284.0" prefHeight="52.0" prefWidth="360.0" promptText="ex: 4654894984615" />
+      <TextField fx:id="txt_nome" editable="false" layoutX="110.0" layoutY="189.0" prefHeight="52.0" prefWidth="360.0" promptText="ex: fatec cruzeiro" />
+      <TextField fx:id="txt_numeroSUS" editable="false" layoutX="110.0" layoutY="284.0" prefHeight="52.0" prefWidth="360.0" promptText="ex: 32198746516 " />
+      <TextField fx:id="txt_RG" editable="false" layoutX="501.0" layoutY="189.0" prefHeight="52.0" prefWidth="360.0" promptText="ex: 00000000000-SP" />
+      <TextField fx:id="txt_CPF" editable="false" layoutX="501.0" layoutY="284.0" prefHeight="52.0" prefWidth="360.0" promptText="ex: 4654894984615" />
       <Label layoutX="111.0" layoutY="173.0" text="Nome">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -39,12 +39,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txt_pesquisarPaciente" layoutX="171.0" layoutY="69.0" prefHeight="52.0" prefWidth="691.0" promptText="Pesquisar paciente" />
-      <ImageView fitHeight="52.0" fitWidth="43.0" layoutX="115.0" layoutY="74.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../assets/img/search_icon.png" />
-         </image>
-      </ImageView>
+      <TextField fx:id="txt_pesquisarPaciente" layoutX="115.0" layoutY="70.0" prefHeight="52.0" prefWidth="691.0" promptText="Pesquisar CPF do paciente sem pontuação" />
       <Button layoutY="-1.0" mnemonicParsing="false" onAction="#voltarHome" prefHeight="17.0" prefWidth="84.0" style="-fx-background-color: #0088AA; -fx-border-radius: 10;" text="Voltar" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
@@ -57,5 +52,18 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <Button layoutX="818.0" layoutY="70.0" mnemonicParsing="false" onAction="#buscarPaciente" prefHeight="52.0" prefWidth="55.0" style="-fx-background-color: #0088AA; -fx-background-radius: 5;" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="37.0" nodeOrientation="RIGHT_TO_LEFT" opacity="0.32" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/img/search_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="lb_Id" layoutX="473.0" layoutY="362.0" />
    </children>
 </AnchorPane>

@@ -5,23 +5,17 @@ public class Usuario extends Pessoa{
     private int idUsuario;
     private String usuario;
     private String senha;
-    private byte userType;
+    private int idPrincipal;
+    private int userType;
 
-    public Usuario(String usuario, String senha, byte userType, String nome){
+    public Usuario(String usuario, String senha) {
         this.usuario = usuario;
         this.senha = senha;
-        this.userType = userType;
-        super.setNome(nome);
     }
 
-    public Usuario(byte userType, String nome) {
-        super.setNome(nome);
-        this.userType = userType;
+    public Usuario() {
     }
-
-    public Usuario() {}
     
-        
     public void iniciarSessao(){
         
     }
@@ -54,7 +48,19 @@ public class Usuario extends Pessoa{
         this.senha = senha;
     }
 
-    public byte getUserType() {
+    public int getIdPrincipal() {
+        return idPrincipal;
+    }
+
+    public void setIdPrincipal(int idPrincipal) {
+        this.idPrincipal = idPrincipal;
+    }
+
+    public void setUserType(int usertype){
+        this.userType = usertype;
+    }
+    
+    public int getUserType() {
         return userType;
     }
 }

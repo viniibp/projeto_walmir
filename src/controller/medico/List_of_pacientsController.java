@@ -67,7 +67,7 @@ public class List_of_pacientsController implements Initializable {
             HBox button_base = hbox("257", "88");
             Button button = button("170", "55", "Atender");
             
-            //TODO passar dados do paciente para outra tela
+            //TODO passar dados do atendimento para outra tela
             button.setOnMouseClicked((__) -> {
                 try {
                     main.TrocarTelas("medico/diagnostics.fxml", paciente);

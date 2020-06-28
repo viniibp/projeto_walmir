@@ -24,7 +24,7 @@
             <Label fx:id="lb_nome" layoutX="201.0" layoutY="45.0" prefHeight="19.0" prefWidth="200.0" style="-fx-border-color: grey;" />
             <Label fx:id="lb_sus" layoutX="201.0" layoutY="121.0" prefHeight="19.0" prefWidth="200.0" style="-fx-border-color: grey;" />
             <Label fx:id="lb_cpf" layoutX="201.0" layoutY="186.0" prefHeight="19.0" prefWidth="200.0" style="-fx-border-color: grey;" />
-            <Pane layoutX="201.0" layoutY="228.0" prefHeight="10.0" prefWidth="200.0" style="-fx-background-color: yellow; -fx-background-radius: 10;" />
+            <Pane layoutX="201.0" layoutY="14.0" prefHeight="10.0" prefWidth="200.0" style="-fx-background-color: yellow; -fx-background-radius: 10;" />
          </children>
       </Pane>
       <Button layoutX="519.0" layoutY="365.0" mnemonicParsing="false" onAction="#enviar" prefHeight="71.0" prefWidth="420.0" style="-fx-background-color: #0088AA; -fx-background-radius: 5;" text="Enviar" textFill="WHITE">

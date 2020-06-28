@@ -9,6 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import models.Paciente;
+import models.Recepcionista;
+import static sessao.Sessao.Logado;
 import views.main;
 
 public class Patient_registerController implements Initializable {
@@ -46,8 +48,11 @@ public class Patient_registerController implements Initializable {
 
     @FXML
     private void cadastrarPaciente(ActionEvent event) {
-        System.out.println(paciente().getNome());
-        System.out.println(paciente().getEstado());
+        Recepcionista rec = (Recepcionista)Logado();
+        if(rec.cadastrarPaciente(paciente())){
+            widget.widgets.Notification("Sucesso!", "O paciente " + paciente().getNome() + " foi cadastrado.");
+        }
+        else widget.widgets.Notification("Falha", "O paciente " + paciente().getNome() + " ja existe.");
     }
     
     private Paciente paciente(){

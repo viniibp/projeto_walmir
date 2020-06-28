@@ -14,6 +14,7 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Recepcionista recep = (Recepcionista)Sessao.Logado();
+        System.out.println(recep.getNome());
     }    
     
     @FXML

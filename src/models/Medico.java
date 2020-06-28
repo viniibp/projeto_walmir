@@ -1,29 +1,11 @@
 package models;
 
-import dao.models.MedicoDAO;
-
-public class Medico extends Usuario {
+public class Medico extends Usuario{
 
     private int crm;
     private String especialidade;
     
-    public Medico(String user, String senha, byte userType, String nome, String espec){
-        super(user, senha, userType, nome);
-        this.especialidade = espec;
-    }
-    public Medico(byte userType, String nome, String espec){
-        super(userType, nome);
-        this.especialidade = espec;
-    }
-
-    public Medico() {
-    }
-    
-    
-    
-    public Medico Logar(String usuario, String senha){
-     return new MedicoDAO().getMedico(usuario, senha);
-    }
+    public Medico() {}
     
     private void imprimirAtendimento(){
         
