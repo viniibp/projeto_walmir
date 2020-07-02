@@ -81,7 +81,6 @@ public class RecepcionistaDAO extends ConnectionFactory{
             rs = stmt.executeQuery();
             
             if (rs.next()){
-                System.out.println("acho");
                 Paciente pac = new Paciente();
                 pac.setIdPaciente(rs.getInt("idPaciente"));
                 pac.setNome(rs.getString("nome"));
@@ -103,13 +102,15 @@ public class RecepcionistaDAO extends ConnectionFactory{
          try {
             Open();
             PreparedStatement stmt;
-            String command = "INSERT INTO Atendimentos(idAtendimento, idPaciente, idRecepcionista) VALUES"
-                + "(?,?,?);";
+            String command = "INSERT INTO Atendimentos(idAtendimento, idPaciente, idRecepcionista, descricaoEnfermeira) VALUES"
+                + "(?,?,?,?);";
             
             stmt = conn.prepareStatement(command);
             stmt.setInt(1, 0);
             stmt.setInt(2, atend.getIdPaciente());
             stmt.setInt(3, atend.getIdReceptionista());
+            stmt.setString(4, "null");
+
             stmt.execute();
             stmt.close();
 

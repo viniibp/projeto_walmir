@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import models.UserType;
 import models.Usuario;
@@ -15,7 +16,10 @@ import views.main;
 public class LoginController implements Initializable {
 
     @FXML
-    private TextField txt_user, txt_pass;
+    private TextField txt_user;
+    
+    @FXML
+    private PasswordField txt_pass;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -56,7 +60,7 @@ public class LoginController implements Initializable {
         if(u != null){
             String[] caminhos = new String[3];
             caminhos[0] = "medico/list_of_pacients.fxml";
-            caminhos[1] = "";
+            caminhos[1] = "medico/list_of_pacients.fxml";
             caminhos[2] = "recepcao/home.fxml";
             
             Sessao.StartSession(u);

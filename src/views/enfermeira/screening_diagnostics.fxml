@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
@@ -17,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="600" prefWidth="974" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.recepcao.Screening_diagnosticsController">
+<AnchorPane id="AnchorPane" prefHeight="600" prefWidth="974" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.enfermeira.Screening_diagnosticsController">
    <children>
       <ScrollPane fx:id="scroll" layoutX="113.0" layoutY="330.0" prefHeight="242.0" prefWidth="347.0" style="-fx-background-color: white;">
          <content>
@@ -33,7 +34,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="63.0" prefWidth="167.0" style="-fx-border-color: grey; -fx-border-radius: 10;">
                      <children>
-                        <Text fx:id="doenca0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="doenca0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font></Text>
@@ -49,7 +50,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="63.0" prefWidth="167.0" style="-fx-border-color: grey; -fx-border-radius: 10;">
                      <children>
-                        <Text fx:id="doenca1" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="doenca1" strokeType="OUTSIDE" strokeWidth="0.0" text="Data">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font></Text>
@@ -65,7 +66,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="63.0" prefWidth="167.0" style="-fx-border-color: grey; -fx-border-radius: 10;">
                      <children>
-                        <Text fx:id="doenca2" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="doenca2" strokeType="OUTSIDE" strokeWidth="0.0" text="Data">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font></Text>
@@ -77,21 +78,41 @@
       </ScrollPane>
       <AnchorPane layoutX="94.0" layoutY="46.0" prefHeight="241.0" prefWidth="385.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 5;">
          <children>
-            <Label layoutX="121.0" layoutY="42.0" text="Nome:" />
-            <Label layoutX="127.0" layoutY="118.0" text="SUS:" />
-            <Label layoutX="127.0" layoutY="183.0" prefHeight="0.0" prefWidth="33.0" text="CPF:" />
-            <Label layoutX="160.0" layoutY="41.0" prefHeight="19.0" prefWidth="33.0" style="-fx-border-color: grey;" />
-            <Label layoutX="160.0" layoutY="117.0" prefHeight="19.0" prefWidth="33.0" style="-fx-border-color: grey;" />
-            <Label layoutX="160.0" layoutY="182.0" prefHeight="0.0" prefWidth="33.0" style="-fx-border-color: grey;" />
-         </children></AnchorPane>
-      <AnchorPane layoutX="520.0" layoutY="46.0" prefHeight="241.0" prefWidth="385.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 5;">
-         <children>
-            <TextArea layoutX="13.0" layoutY="27.0" prefHeight="186.0" prefWidth="353.0" style="-fx-border-color: white;" wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
-            <Label layoutX="14.0" layoutY="6.0" text="Dr Fatec" AnchorPane.leftAnchor="10.0">
+            <Label layoutX="89.0" layoutY="82.0" text="Nome:">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <Label layoutX="135.0" layoutY="219.0" text="99/99/9999" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0">
+            <Label layoutX="95.0" layoutY="132.0" text="SUS:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label layoutX="95.0" layoutY="184.0" prefHeight="0.0" prefWidth="33.0" text="CPF:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="lb_nomePaciente" layoutX="131.0" layoutY="81.0" prefHeight="19.0" prefWidth="149.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="lb_sus" layoutX="131.0" layoutY="131.0" prefHeight="19.0" prefWidth="149.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="lb_cpf" layoutX="131.0" layoutY="183.0" prefHeight="17.0" prefWidth="149.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label layoutX="105.0" layoutY="14.0" text="Dados do Paciente">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Separator layoutX="49.0" layoutY="54.0" prefHeight="1.0" prefWidth="300.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+         </children></AnchorPane>
+      <AnchorPane layoutX="520.0" layoutY="46.0" prefHeight="241.0" prefWidth="385.0" style="-fx-background-color: white; -fx-border-color: grey; -fx-border-radius: 5;">
+         <children>
+            <TextArea fx:id="txt_descricaoEnfermeira" layoutX="14.0" layoutY="27.0" prefHeight="201.0" prefWidth="359.0" style="-fx-border-color: white;" wrapText="true" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" />
+            <Label fx:id="lb_nomeEnfermeira" layoutX="14.0" layoutY="6.0" text="Dr Fatec" AnchorPane.leftAnchor="10.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
@@ -104,7 +125,7 @@
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <Label layoutX="47.0" layoutY="38.0" text="Baixo" />
-                        <RadioButton layoutX="54.0" layoutY="17.0" mnemonicParsing="false">
+                        <RadioButton fx:id="rb_baixo" layoutX="54.0" layoutY="17.0" mnemonicParsing="false" selected="true">
                            <toggleGroup>
                               <ToggleGroup fx:id="toogle" />
                            </toggleGroup></RadioButton>
@@ -117,7 +138,7 @@
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <Label layoutX="37.0" layoutY="37.0" text="Moderado" />
-                        <RadioButton layoutX="57.0" layoutY="17.0" mnemonicParsing="false" toggleGroup="$toogle" />
+                        <RadioButton fx:id="rb_moderado" layoutX="57.0" layoutY="17.0" mnemonicParsing="false" toggleGroup="$toogle" />
                      </children>
                   </Pane>
                </children>
@@ -127,7 +148,7 @@
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <Label layoutX="54.0" layoutY="38.0" text="Grave" />
-                        <RadioButton layoutX="61.0" layoutY="17.0" mnemonicParsing="false" toggleGroup="$toogle" />
+                        <RadioButton fx:id="rb_grave" layoutX="61.0" layoutY="17.0" mnemonicParsing="false" toggleGroup="$toogle" />
                      </children>
                   </Pane>
                </children>
@@ -140,23 +161,17 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="70.0" layoutY="428.0" mnemonicParsing="false" onAction="#back" prefHeight="37.0" prefWidth="36.0" style="-fx-background-color: white;">
+      <Button mnemonicParsing="false" onAction="#voltarListaPacientes" prefHeight="34.0" prefWidth="89.0" style="-fx-background-color: #0088AA; -fx-border-radius: 10;" text="Voltar" textFill="WHITE">
          <graphic>
-            <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+            <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                <image>
                   <Image url="@../../assets/img/collapse_icon.png" />
                </image>
             </ImageView>
          </graphic>
-      </Button>
-      <Button layoutX="467.0" layoutY="428.0" mnemonicParsing="false" onAction="#forward" prefHeight="37.0" prefWidth="36.0" style="-fx-background-color: white;">
-         <graphic>
-            <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
-               <image>
-                  <Image url="@../../assets/img/collapse_icon.png" />
-               </image>
-            </ImageView>
-         </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
       </Button>
    </children>
 </AnchorPane>

@@ -1,18 +1,21 @@
 package models;
 
+import dao.models.MedicoDAO;
+import java.util.List;
+
 public class Medico extends Usuario{
 
     private int crm;
     private String especialidade;
-    
-    public Medico() {}
-    
-    private void imprimirAtendimento(){
         
+    public List<Atendimento> buscarAtendimentos(){
+        return new MedicoDAO().buscarAtendimentos();
     }
     
-    private void finalizarAtendimento(){
-        
+    public void finalizarAtendimento(Atendimento atm){
+        MedicoDAO dao = new MedicoDAO();
+        dao.finalizarAtendimento(atm);
+        dao.armazenarMedicamentos(atm.carregarMedicamentos(), atm.getIdAtendimento());
     }
     
     public int getCrm() {

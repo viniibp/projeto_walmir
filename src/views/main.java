@@ -16,7 +16,6 @@ public class main extends Application {
     @Override
     public void start(Stage stageStart) throws IOException {
         stage = stageStart;
-        
         //Busca a view da tela inicial
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         

@@ -11,7 +11,7 @@ public class Atendimento {
     private int idReceptionista;
     private int idEnfermeira;
     private String descricaoEnfermeira;
-    private byte risco;
+    private int risco;
     private Date data;
     private String descricaoMedico;
     private String diagnostico;
@@ -25,11 +25,10 @@ public class Atendimento {
         medicamentos.add(med);
     }
     
-//    public List<Medicamento> carregarMedicamentos(){
-//        List<Medicamento> medicamentosCarregados;
-//        
-//        return medicamentosCarregados;
-//    } 
+    public List<Medicamento> carregarMedicamentos(){    
+        if(medicamentos == null) medicamentos = new ArrayList();
+        return medicamentos;
+    } 
 
     public int getIdAtendimento() {
         return idAtendimento;
@@ -79,11 +78,11 @@ public class Atendimento {
         this.descricaoEnfermeira = descricaoEnfermeira;
     }
 
-    public byte getRisco() {
+    public int getRisco() {
         return risco;
     }
 
-    public void setRisco(byte risco) {
+    public void setRisco(int risco) {
         this.risco = risco;
     }
 

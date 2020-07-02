@@ -1,5 +1,6 @@
 package models;
 
+import dao.models.PacienteDAO;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,12 +22,11 @@ public class Paciente extends Pessoa{
     
     public Paciente(){}
     
-//    public List<Atendimento> historico(){
-//        List<Atendimento> atendimentos;
-//        
-//        //TODO fazer busca do historico
-//        return atendimentos;
-//    }
+    public List<Atendimento> historico(int idAtendimento){
+        List<Atendimento> atendimentos = new PacienteDAO().historico(this.idPaciente, idAtendimento);
+        if(atendimentos == null)return new ArrayList();
+        return atendimentos; 
+    }
     
     public int getIdPaciente(){
         return this.idPaciente;

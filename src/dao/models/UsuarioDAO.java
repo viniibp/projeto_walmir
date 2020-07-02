@@ -27,9 +27,11 @@ public class UsuarioDAO extends ConnectionFactory{
             rs = stmt.executeQuery();
             if(rs.next()){
                 Medico medico = new Medico();
+                medico.setNome(rs.getString("nome"));
                 medico.setCrm(rs.getInt("crm"));
                 medico.setEspecialidade(rs.getString("especialidade"));
                 medico.setIdPrincipal(user.getIdPrincipal());
+                medico.setUserType(0);
                 return medico;
             }
             stmt.close();
@@ -60,6 +62,7 @@ public class UsuarioDAO extends ConnectionFactory{
                 rec.setNome(rs.getString("nome"));
                 rec.setRegistro(rs.getInt("registro"));
                 rec.setIdPrincipal(user.getIdPrincipal());
+                rec.setUserType(1);
                 return rec;
             }
             
@@ -79,7 +82,7 @@ public class UsuarioDAO extends ConnectionFactory{
             PreparedStatement stmt;
             ResultSet rs;
             String command = "SELECT * FROM Enfermeira "
-                + "WHERE id = ?;";
+                + "WHERE idEnfermeira = ?;";
             
             stmt = conn.prepareStatement(command);
             stmt.setInt(1, user.getIdPrincipal());
@@ -89,7 +92,7 @@ public class UsuarioDAO extends ConnectionFactory{
                 Enfermeira enfer = new Enfermeira();
                 enfer.setNome(rs.getString("nome"));
                 enfer.setIdPrincipal(user.getIdPrincipal());
-
+                enfer.setUserType(2);
                 return enfer;
             }
             stmt.close();

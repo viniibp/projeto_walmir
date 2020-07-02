@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,30 +18,30 @@
    <children>
       <Pane layoutX="60.0" layoutY="48.0" prefHeight="252.0" prefWidth="420.0" style="-fx-border-color: grey; -fx-border-radius: 5;">
          <children>
-            <ImageView fitHeight="79.0" fitWidth="89.0" layoutX="44.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="79.0" fitWidth="89.0" layoutX="44.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="162.0" layoutY="46.0" text="Nome:" />
             <Label layoutX="168.0" layoutY="122.0" text="SUS:" />
             <Label layoutX="168.0" layoutY="187.0" prefHeight="0.0" prefWidth="33.0" text="CPF:" />
-            <Label fx:id="lb_nome" layoutX="201.0" layoutY="45.0" prefHeight="19.0" prefWidth="200.0" style="-fx-border-color: grey;" />
-            <Label fx:id="lb_sus" layoutX="201.0" layoutY="121.0" prefHeight="19.0" prefWidth="200.0" style="-fx-border-color: grey;" />
-            <Label fx:id="lb_cpf" layoutX="201.0" layoutY="186.0" prefHeight="19.0" prefWidth="200.0" style="-fx-border-color: grey;" />
-            <Pane layoutX="201.0" layoutY="14.0" prefHeight="10.0" prefWidth="200.0" style="-fx-background-color: yellow; -fx-background-radius: 10;" />
+            <Label fx:id="lb_nome" layoutX="201.0" layoutY="45.0" prefHeight="19.0" prefWidth="200.0" />
+            <Label fx:id="lb_sus" layoutX="201.0" layoutY="121.0" prefHeight="19.0" prefWidth="200.0" />
+            <Label fx:id="lb_cpf" layoutX="201.0" layoutY="186.0" prefHeight="19.0" prefWidth="200.0" />
+            <Pane fx:id="pn_risco" layoutX="201.0" layoutY="14.0" prefHeight="10.0" prefWidth="200.0" style="-fx-background-color: yellow; -fx-background-radius: 10;" />
          </children>
       </Pane>
-      <Button layoutX="519.0" layoutY="365.0" mnemonicParsing="false" onAction="#enviar" prefHeight="71.0" prefWidth="420.0" style="-fx-background-color: #0088AA; -fx-background-radius: 5;" text="Enviar" textFill="WHITE">
+      <Button layoutX="519.0" layoutY="486.0" mnemonicParsing="false" onAction="#enviar" prefHeight="71.0" prefWidth="420.0" style="-fx-background-color: #0088AA; -fx-background-radius: 5;" text="Enviar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
       <AnchorPane layoutX="519.0" layoutY="48.0" prefHeight="252.0" prefWidth="420.0" style="-fx-border-color: grey; -fx-border-radius: 5;">
          <children>
-            <TextArea layoutX="13.0" layoutY="24.0" prefHeight="203.0" prefWidth="396.0" style="-fx-border-color: white;" wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
-            <Label layoutX="373.0" layoutY="230.0" text="Grave" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="14.0">
+            <TextArea fx:id="txt_descricaoMedico" layoutX="13.0" layoutY="24.0" prefHeight="203.0" prefWidth="396.0" style="-fx-border-color: white;" wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" />
+            <Label fx:id="lb_date" layoutX="373.0" layoutY="230.0" text="Grave" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="14.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="6.0" text="Grave" AnchorPane.leftAnchor="12.0">
+            <Label fx:id="lb_nomeMedico" layoutX="14.0" layoutY="6.0" text="Grave" AnchorPane.leftAnchor="12.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -78,7 +79,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <Button layoutX="6.0" layoutY="4.0" mnemonicParsing="false" onAction="#voltarListaPacientes" prefHeight="34.0" prefWidth="89.0" style="-fx-background-color: #0088AA; -fx-border-radius: 10;" text="Voltar" textFill="WHITE">
+      <Button layoutX="-1.0" mnemonicParsing="false" onAction="#voltarListaPacientes" prefHeight="34.0" prefWidth="89.0" style="-fx-background-color: #0088AA; -fx-border-radius: 10;" text="Voltar" textFill="WHITE">
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                <image>
@@ -90,5 +91,11 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <TextField fx:id="txt_diagnostico" layoutX="552.0" layoutY="407.0" prefHeight="20.0" prefWidth="355.0" />
+      <Text layoutX="668.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diagnostico Final">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

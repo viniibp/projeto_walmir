@@ -1,5 +1,8 @@
 package controller.medico;
 
+import dao.models.EnfermeiraDAO;
+import dao.models.MedicoDAO;
+import dao.models.PacienteDAO;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -15,8 +18,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
-import models.Medico;
+import models.Atendimento;
 import models.Paciente;
+import models.UserType;
+import models.Usuario;
 import sessao.Sessao;
 import views.main;
 import static widget.widgets.hbox;
@@ -38,27 +43,18 @@ public class List_of_pacientsController implements Initializable {
     @FXML
     private TextField txt_pesquisarPaciente;
     
-    private List<Paciente> pacientes;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Medico medico = (Medico)Sessao.Logado();
-        nomeMedico.setText(medico.getNome());
-        scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); 
-        
-        //TODO remover testes posteriormente
-        pacientes = new ArrayList<>();
-        pacientes.add(new Paciente("Marcos"));
-        pacientes.add(new Paciente("Pedro"));
-        pacientes.add(new Paciente("Rafael"));
-        pacientes.add(new Paciente("Paula"));        
-        pacientes.add(new Paciente("Teste"));
-   
-        load(pacientes);
+        Usuario usuario = Sessao.Logado();
+        nomeMedico.setText(usuario.getNome());
+        scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        load(atendimentos(usuario));
     }
     
-    private void load(List<Paciente> pacientes){
-        pacientes.forEach((paciente) -> {
+    private void load(List<Atendimento> atendimentos){
+        atendimentos.forEach((atendimento) -> {
+            Paciente paciente = new PacienteDAO().buscarPacienteId(atendimento.getIdPaciente());
             HBox pacient_base = hbox("495", "85");
             TextField pacient = txtBorder("480", "55");
             pacient.setText(paciente.getNome());
@@ -67,10 +63,12 @@ public class List_of_pacientsController implements Initializable {
             HBox button_base = hbox("257", "88");
             Button button = button("170", "55", "Atender");
             
-            //TODO passar dados do atendimento para outra tela
             button.setOnMouseClicked((__) -> {
                 try {
-                    main.TrocarTelas("medico/diagnostics.fxml", paciente);
+                    String url;
+                    if(Sessao.Logado().getUserType() == UserType.medico) url = "medico/diagnostics.fxml";
+                    else url = "enfermeira/screening_diagnostics.fxml";
+                    main.TrocarTelas(url, atendimento);
                 } catch (IOException ex) {
                     Logger.getLogger(List_of_pacientsController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -85,13 +83,16 @@ public class List_of_pacientsController implements Initializable {
     
     @FXML
     private void filtrarPacientes(){
+        Usuario usuario = Sessao.Logado();
+        PacienteDAO dao = new PacienteDAO();
+        List<Atendimento> listaFiltrada = new ArrayList<>();
+        
         base.getChildren().clear();
-        List<Paciente> listaFiltrada = new ArrayList<>();
-//        for (Paciente paciente : pacientes) {
-//            if(paciente.getNome().toUpperCase().startsWith(txt_pesquisarPaciente.getText().toUpperCase())) listaFiltrada.add(paciente);
-//        }
-        pacientes.stream().filter((paciente) -> (
-                paciente.getNome().toUpperCase().startsWith(txt_pesquisarPaciente.getText().toUpperCase())) //começa com
+        
+        atendimentos(usuario).stream().filter((atendimento) -> (
+                dao.buscarPacienteId(atendimento.getIdPaciente())
+                        .getNome().toUpperCase().startsWith(txt_pesquisarPaciente.getText()
+                                .toUpperCase())) //começa com
                 //|| paciente.getNome().toUpperCase().contains(txt_pesquisarPaciente.getText().toUpperCase()) //possui
         ).forEachOrdered((paciente) -> {
             listaFiltrada.add(paciente);
@@ -103,6 +104,12 @@ public class List_of_pacientsController implements Initializable {
     private void sair() throws IOException{
         Sessao.EndSession();
         main.TrocarTelas("login.fxml");
+    }
+    
+    private List<Atendimento> atendimentos(Usuario usuario){
+        if(usuario.getUserType() == UserType.medico) return new MedicoDAO().buscarAtendimentos();
+        else return new EnfermeiraDAO().buscarAtendimentos();
+        
     }
     
 }

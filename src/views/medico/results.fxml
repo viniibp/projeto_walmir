@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
@@ -12,10 +14,10 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="974.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.medico.ResultsController">
    <children>
-      <AnchorPane layoutX="25.0" layoutY="32.0" prefHeight="237.0" prefWidth="923.0" style="-fx-border-color: grey; -fx-border-radius: 5;">
+      <AnchorPane layoutX="25.0" layoutY="50.0" prefHeight="219.0" prefWidth="923.0" style="-fx-border-color: grey; -fx-border-radius: 5;">
          <children>
-            <TextArea layoutX="14.0" layoutY="19.0" prefHeight="191.0" prefWidth="897.0" style="-fx-border-color: white;" wrapText="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="15.0" />
-            <Label layoutX="856.0" layoutY="215.0" text="Dr Fatec" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="20.0">
+            <TextArea fx:id="txt_descricaoMedico" editable="false" layoutX="14.0" layoutY="19.0" prefHeight="191.0" prefWidth="897.0" style="-fx-border-color: white;" wrapText="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="15.0" />
+            <Label fx:id="lb_nomeMedico" layoutX="856.0" layoutY="215.0" text="Dr Fatec" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="20.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -41,15 +43,32 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <Button layoutX="527.0" layoutY="516.0" mnemonicParsing="false" onAction="#imprimir" prefHeight="58.0" prefWidth="420.0" style="-fx-background-color: #0088AA; -fx-background-radius: 5;" text="Imprimir" textFill="WHITE">
+      <Button layoutX="527.0" layoutY="516.0" mnemonicParsing="false" onAction="#finalizarAtendimento" prefHeight="58.0" prefWidth="420.0" style="-fx-background-color: #0088AA; -fx-background-radius: 5;" text="Finalizar Atendimento" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
       <AnchorPane layoutX="528.0" layoutY="316.0" prefHeight="182.0" prefWidth="420.0" style="-fx-border-color: grey; -fx-border-radius: 5;">
          <children>
-            <TextArea layoutX="16.0" layoutY="13.0" prefHeight="160.0" prefWidth="390.0" style="-fx-border-color: white;" wrapText="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
+            <TextArea fx:id="txt_descricaoEnfermeira" editable="false" layoutX="17.0" layoutY="17.0" prefHeight="143.0" prefWidth="388.0" style="-fx-border-color: white;" wrapText="true" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0" />
+            <Label fx:id="lb_nomeEnfermeira" layoutX="356.0" layoutY="161.0" text="Dr Fatec" AnchorPane.rightAnchor="17.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
+      <Button layoutY="-3.0" mnemonicParsing="false" onAction="#corrigirDiagnostico" prefHeight="34.0" prefWidth="89.0" style="-fx-background-color: #0088AA; -fx-border-radius: 10;" text="Corrigir" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+               <image>
+                  <Image url="@../../assets/img/collapse_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

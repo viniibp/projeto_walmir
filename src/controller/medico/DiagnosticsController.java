@@ -1,8 +1,8 @@
 package controller.medico;
 
+import dao.models.PacienteDAO;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -10,10 +10,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import models.Atendimento;
+import models.Medicamento;
+import models.Medico;
 import models.Paciente;
+import sessao.Sessao;
 import views.main;
 import static widget.widgets.txt;
 import static widget.widgets.hboxBorder;
@@ -24,29 +30,60 @@ public class DiagnosticsController implements Initializable {
     private FlowPane base;
     
     @FXML
+    private Pane pn_risco;
+    
+    @FXML
     private ScrollPane scroll;
     
     @FXML
-    private Label lb_nome;
+    private TextArea txt_descricaoMedico;
+    
+    @FXML
+    private TextField txt_diagnostico;
+    
+    @FXML
+    private Label lb_nome, lb_sus, lb_cpf;
+    
+    @FXML
+    private Label lb_nomeMedico, lb_date;
     
     private List[] medicamentos;
     
-    //teste
-    private Paciente paciente;
+    private Atendimento atendimento;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        paciente = (Paciente)rb.getObject("obj");
-        
+        atendimento = (Atendimento)rb.getObject("obj");
         medicamentos = new List[]{new LinkedList(), new LinkedList()};
   
-        carregarInfo();
+        carregarInfoPaciente();
+        carregarInfoMedico();
         
     }    
     
-    private void carregarInfo(){
-        lb_nome.setText(paciente.getNome());
+    private void carregarInfoMedico(){
+        Medico m = (Medico)Sessao.Logado();
+        lb_nomeMedico.setText(m.getNome());
+        lb_date.setText(getDate());
+
+    }
+    
+    private String getDate(){
+        String dia,mes,ano;
+        dia = java.time.LocalDate.now().toString().substring(8, 10);
+        mes = java.time.LocalDate.now().toString().substring(5, 7);
+        ano = java.time.LocalDate.now().toString().substring(0, 4);
+        return dia+"-"+mes+"-"+ano;
+    }
+    
+    private void carregarInfoPaciente(){
+        Paciente p = new PacienteDAO().buscarPacienteId(atendimento.getIdPaciente());
+        lb_nome.setText(p.getNome());
+        lb_sus.setText(p.getNumSUS());
+        lb_cpf.setText(p.getCpf());
+        pn_risco.setStyle(Risco(atendimento.getRisco()));
+
     }
     
     @FXML
@@ -54,17 +91,11 @@ public class DiagnosticsController implements Initializable {
         main.TrocarTelas("medico/list_of_pacients.fxml");
     }
     
-    /*TODO
-        Fazer botão de remover medicamento/dose
-        arrumar scroll, não muito importante...
-    */
-    
     @FXML
     private void add(){        
         load();
         resize();
-        //desce o scroll até o final...
-        scroll.setVvalue(1); //bugado, se colocar em outro botao, funciona
+        scroll.setVvalue(1); 
     }
     
     @FXML
@@ -72,12 +103,20 @@ public class DiagnosticsController implements Initializable {
         for(int i = 0; i < medicamentos[0].size(); i++){
             TextField medicamento = (TextField)medicamentos[0].get(i);
             TextField dose = (TextField)medicamentos[1].get(i);
+            atendimento.addMedicamento(new Medicamento(medicamento.getText(),dose.getText()));
         }
-        
-        System.out.println(paciente);
-        //main.TrocarTelas("", paciente);
+        atendimento.setDescricaoMedico(txt_descricaoMedico.getText());
+        atendimento.setDiagnostico(txt_diagnostico.getText());
+        main.TrocarTelas("medico/results.fxml", atendimento);
     }
     
+    private String Risco(int risco){
+        String color = "blue";
+        if(risco == 1) color = "yellow";
+        if(risco == 2) color = "red";
+        return "-fx-background-color: "+color+"; -fx-background-radius: 10;"
+                + "-fx-pref-width: 200;-fx-pref-height: 10;";
+    }
     
     private void resize(){
         if(base.getChildren().size() >= 7)scroll.resize(350, 240);
